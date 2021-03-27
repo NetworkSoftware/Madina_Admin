@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="smart.network.patasuadmin">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="pro.network.trymeadmin">
 
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -17,7 +21,7 @@
         android:name="android.support.VERSION"
         android:value="25.3.1" />
     <meta-data
-        android:name="smart.farmerShepherd.diary.app.MyAppGlideModule"
+        android:name="pro.farmerShepherd.diary.app.MyAppGlideModule"
         android:value="GlideModule" />
 
     <uses-feature
@@ -25,15 +29,16 @@
         android:required="true" />
 
     <application
-        android:name="smart.network.patasuadmin.app.AppController"
+        android:name="pro.network.trymeadmin.app.AppController"
         android:allowBackup="true"
-        android:icon="@drawable/firecracker"
+        android:icon="@drawable/tryme_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/firecracker"
-        android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/tryme_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        tools:replace="theme, allowBackup">
 
 
         <uses-library
@@ -41,8 +46,9 @@
             android:required="false" />
 
         <activity
-            android:name="smart.network.patasuadmin.StartActivity"
-            android:label="@string/app_name">
+            android:name="pro.network.trymeadmin.StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNowhite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,21 +56,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="smart.network.patasuadmin.NaviActivity"
-            android:label="Patasu Kadai" />
-        <activity
-            android:name="smart.network.patasuadmin.shop.MainActivity"
-            android:label="Shop List" />
+            android:name="pro.network.trymeadmin.NaviActivity"
+            android:label="@string/app_name" />
 
-        <activity android:name="smart.network.patasuadmin.shop.ShopRegister" />
-        <activity android:name="smart.network.patasuadmin.shop.ShopUpdate" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBufZZ6hR1jYcnwqXg2egbpvCU8Vbd2UU0" />
 
         <activity
-            android:name="smart.network.patasuadmin.stock.MainActivityStock"
+            android:name="pro.network.trymeadmin.product.MainActivityProduct"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeSe.NoActionBar">
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="pro.network.trymeadmin.banner.MainActivityBanner"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeSe.NoActionBar">
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="pro.network.trymeadmin.order.MainActivityOrder"
             android:label="@string/app_name"
             android:theme="@style/AppThemeSe.NoActionBar">
 
@@ -79,42 +108,43 @@
         </activity>
 
         <activity
-            android:name="smart.network.patasuadmin.stock.StockRegister"
+            android:name="pro.network.trymeadmin.feedback.MainActivityFeedback"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeSe.NoActionBar"></activity>
+
+        <activity
+            android:name="pro.network.trymeadmin.product.ProductRegister"
             android:label="Stock Register"
             android:theme="@style/AppThemeWhite" />
         <activity
-            android:name="smart.network.patasuadmin.stock.StockUpdate"
-            android:label="StockUpdate"
+            android:name="pro.network.trymeadmin.banner.BannerRegister"
+            android:label="Banner Upload"
+            android:theme="@style/AppThemeWhite" />
+        <activity
+            android:name="pro.network.trymeadmin.product.ProductUpdate"
+            android:label="Stock Update"
             android:theme="@style/AppThemeWhite" />
 
-
-
-        <activity
-            android:name="smart.network.patasuadmin.staff.MainActivityStaff"
-            android:label="@string/app_name"
-            android:theme="@style/AppThemeSe.NoActionBar">
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-
+        <service
+            android:name="pro.network.trymeadmin.app.FirebaseMessageReceiver"
+            android:exported="false"
+            android:stopWithTask="false">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+        </service>
 
-        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="pro.network.trymeadmin.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity android:name=".app.ActivityMediaOnline" />
 
-        <activity
-            android:name="smart.network.patasuadmin.staff.StaffUpdate"
-            android:label="Staff Update"
-            android:theme="@style/AppThemeWhite" />
-
-        <activity
-            android:name="smart.network.patasuadmin.staff.StaffRegister"
-            android:label="Staff Register"
-            android:theme="@style/AppThemeWhite" />
-
-        <activity android:name="smart.network.patasuadmin.attachment.ActivityMediaOnline"/>
     </application>
 
 </manifest>

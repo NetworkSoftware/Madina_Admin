@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp">
@@ -16,22 +16,83 @@
             android:orientation="vertical">
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Select Title"
-                    android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/itemsAdd"
                     android:layout_margin="5dp"
-                    android:textColorHint="#c6c6c6"
-                    app:met_floatingLabel="normal"/>
+                    android:layout_width="100dp"
+                    app:cardCornerRadius="5dp"
+                    android:background="@drawable/dotted"
+                    android:elevation="50dp"
+                    android:layout_height="200dp">
 
 
-            <android.support.design.widget.TextInputLayout
+                    <ImageView
+                        android:id="@+id/image_wallpaper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@color/white"/>
+                    <ImageView
+                        android:id="@+id/image_placeholder"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/ic_outline_add_a_photo_24"
+                        android:scaleType="fitCenter"
+                        android:layout_gravity="center" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imagelist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical" />
+            </LinearLayout>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Category"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_margin="5dp"
+            android:textColorHint="#c6c6c6"
+            app:met_floatingLabel="normal"/>
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Brand"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_margin="5dp"
+            android:textColorHint="#c6c6c6"
+            app:met_floatingLabel="normal"/>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -39,43 +100,62 @@
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/itemsNo"
+                    android:id="@+id/model"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/gray"
-                    android:hint="Items No"
-                    android:inputType="textMultiLine"
+                    android:hint="Model"
+                    android:inputType="text"
                     android:textColorHint="#c6c6c6"
                     android:textSize="@dimen/textsize" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
+                android:visibility="gone"
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/items"
+                    android:id="@+id/ram"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/gray"
-                    android:hint="Items Name"
-                    android:inputType="textMultiLine"
+                    android:hint="RAM"
+                    android:inputType="number"
                     android:textColorHint="#c6c6c6"
                     android:textSize="@dimen/textsize" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_margin="5dp"
+                android:layout_weight="1">
 
+                <EditText
+                    android:id="@+id/rom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/gray"
+                    android:hint="ROM"
+                    android:inputType="number"
+                    android:textColorHint="#c6c6c6"
+                    android:textSize="@dimen/textsize" />
 
-
-            <android.support.design.widget.TextInputLayout
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -93,21 +173,46 @@
                     android:textColorHint="#c6c6c6"
                     android:textSize="@dimen/textsize" />
 
-            </android.support.design.widget.TextInputLayout>
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/storeid"
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Select Store"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:textColorHint="#c6c6c6"
-                app:met_floatingLabel="normal"/>
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/gray"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="#c6c6c6"
+                    android:textSize="@dimen/textsize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/stock_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Sold or Not"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_margin="5dp"
+            android:textColorHint="#c6c6c6"
+            app:met_floatingLabel="normal"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/delete"
