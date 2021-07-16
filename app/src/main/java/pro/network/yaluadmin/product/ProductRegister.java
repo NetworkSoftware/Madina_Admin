@@ -215,7 +215,7 @@ public class ProductRegister extends AppCompatActivity implements ImageClick {
                     if (success) {
                         final String descrip = description.getText().toString();
                         sendNotification(brand.getText().toString() + " " + model.getText().toString()
-                                , descrip.length() > 10 ? descrip.substring(0, 9) + "..." :
+                                , descrip.length() > 30 ? descrip.substring(0, 29) + "..." :
                                         descrip);
                     }
                     Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
