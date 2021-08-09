@@ -112,7 +112,11 @@ public class BannerRegister extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                if (description.getText().toString().length() <= 0) {
+                    description.setError("Enter the Descripton");
+                }else {
+                    registerUser();
+                }
             }
         });
 
