@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "763954224350",
-    "project_id": "yalu-admin",
-    "storage_bucket": "yalu-admin.appspot.com"
+    "project_number": "487269472560",
+    "project_id": "madinaadmin-5ee10",
+    "storage_bucket": "madinaadmin-5ee10.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:763954224350:android:24c7ff08685357a3f1f64f",
+        "mobilesdk_app_id": "1:487269472560:android:836402a431d3a732f650f5",
         "android_client_info": {
-          "package_name": "pro.network.yaluadmin"
+          "package_name": "pro.network.madinaadmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "763954224350-crnchrrhp7kidicrogvuc8sprelj346q.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "pro.network.yaluadmin",
-            "certificate_hash": "1930ce8f7d9b02cfe1d28be6e1dbba4a9be93253"
-          }
-        },
-        {
-          "client_id": "763954224350-58o10asvov9ab83s2hjbe1fcf04f9uqa.apps.googleusercontent.com",
+          "client_id": "487269472560-bi8vo017l6var3mh0lr6mgjo42kqel2r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCMEcVlSl70H96fC8L9TK6X9mGBs_kUy5Y"
+          "current_key": "AIzaSyDtV-nvXnmUD6JriByqk89fwCd8hOFWil0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "763954224350-58o10asvov9ab83s2hjbe1fcf04f9uqa.apps.googleusercontent.com",
+              "client_id": "487269472560-bi8vo017l6var3mh0lr6mgjo42kqel2r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
